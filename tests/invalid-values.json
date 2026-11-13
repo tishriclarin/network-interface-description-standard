@@ -1,0 +1,1 @@
+[{"input":"::SERVICE-VLAN:99999","reason":"Syntax accepted; device-specific VLAN validation must reject"},{"input":"::VLAN:200-100","reason":"Reversed range preserved with warning"}]
