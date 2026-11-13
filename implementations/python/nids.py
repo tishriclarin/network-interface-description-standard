@@ -89,23 +89,23 @@ def parse(description: str) -> dict[str, Any]:
         raise TypeError('description must be a string')
     warnings: list[str] = []
     if '::' in description:
-        legacy_text, metadata_text = description.split('::', 1)
+        positional_text, metadata_text = description.split('::', 1)
     else:
-        legacy_text, metadata_text = description, None
-    legacy = {'source': None, 'destination': None, 'layer': None, 'device_function': None, 'description': None}
-    if legacy_text:
-        positions, notes = _split_fields(legacy_text)
+        positional_text, metadata_text = description, None
+    positional = {'source': None, 'destination': None, 'layer': None, 'device_function': None, 'description': None}
+    if positional_text:
+        positions, notes = _split_fields(positional_text)
         warnings.extend(notes)
         positions = [p.strip().strip("'").replace("''", "'") or None for p in positions]
         if len(positions) == 1:
-            legacy['destination'] = positions[0]
+            positional['destination'] = positions[0]
         else:
-            for name, value in zip(legacy, positions):
-                legacy[name] = value
+            for name, value in zip(positional, positions):
+                positional[name] = value
             if len(positions) > 5:
-                warnings.append('Extra legacy positions ignored')
-            if legacy['layer'] and legacy['layer'].upper() not in ('L2', 'L3'):
-                warnings.append('Legacy layer is not L2 or L3')
+                warnings.append('Extra positional fields ignored')
+            if positional['layer'] and positional['layer'].upper() not in ('L2', 'L3'):
+                warnings.append('positional layer is not L2 or L3')
     metadata: dict[str, Any] = {}
     if metadata_text is not None:
         fields, notes = _split_fields(metadata_text, recover_quotes=True)
@@ -122,4 +122,4 @@ def parse(description: str) -> dict[str, Any]:
             if key in metadata:
                 warnings.append(f'Duplicate key {key}; last value wins')
             metadata[key] = _decode(value, warnings) if sep else True
-    return {'legacy': legacy, 'metadata': metadata, 'warnings': warnings}
+    return {'legacy': positional, 'metadata': metadata, 'warnings': warnings}
