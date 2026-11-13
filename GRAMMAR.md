@@ -1,7 +1,7 @@
 # NIDS Grammar (informative)
 
 ```text
-description = legacy [ '::' metadata ] | '::' metadata
+description = positional [ '::' metadata ] | '::' metadata
 metadata    = argument *( '_' argument )
 argument    = key [ ':' value ]
 key         = letter *( letter | digit | '-' )
