@@ -10,7 +10,7 @@ Vendor-neutral conventions for human-readable and machine-parseable interface de
 SOURCE_DESTINATION_LAYER_DEVICE-FUNCTION_DESCRIPTION::KEY:VALUE_KEY:VALUE_FLAG
 ```
 
-Legacy fields are positional. One nonempty legacy field means destination; two mean source and destination. Explicit empty positions are preserved, e.g. `source_destination__router_description` omits layer. Layer is never defaulted. The first `::` starts metadata. Metadata uses underscores between arguments, colons after keys, single-quoted literal strings (apostrophes doubled), bracketed IPv6, comma lists, and inclusive numeric ranges. Parsing is forgiving of empty list members and incomplete quotes; provisioning must validate values independently.
+positional fields are positional. One nonempty positional field means destination; two mean source and destination. Explicit empty positions are preserved, e.g. `source_destination__router_description` omits layer. Layer is never defaulted. The first `::` starts metadata. Metadata uses underscores between arguments, colons after keys, single-quoted literal strings (apostrophes doubled), bracketed IPv6, comma lists, and inclusive numeric ranges. Parsing is forgiving of empty list members and incomplete quotes; provisioning must validate values independently.
 
 ### Examples
 
