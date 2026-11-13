@@ -2,13 +2,13 @@
 
 ## Phase 1 — Baseline specification (initial draft)
 - [x] Establish repository, branding, specification and grammar documents
-- [x] Record legacy positional semantics and metadata conventions
+- [x] Record positional positional semantics and metadata conventions
 - [x] Add initial Python parser and example fixtures
 - [ ] Review contradictions and ambiguous cases in the written specification
 - [ ] Execute and pass all conformance tests
 
 ## Phase 2 — Harden the Python reference implementation
-- [ ] Robust scanner for quoted legacy fields and metadata
+- [ ] Robust scanner for quoted positional fields and metadata
 - [ ] Recover unclosed quotes at the next underscore, even if later quotes exist
 - [ ] Correct IPv6 lists, IPv6 endpoints, and bracket handling
 - [ ] Preserve raw tokens, normalized tokens, warnings, and value types
