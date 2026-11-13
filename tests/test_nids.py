@@ -7,13 +7,13 @@ from nids import parse
 class NIDSTests(unittest.TestCase):
     def test_one_position_destination(self):
         d = parse('OLT-1')
-        self.assertIsNone(d['legacy']['source'])
-        self.assertEqual(d['legacy']['destination'], 'OLT-1')
-        self.assertIsNone(d['legacy']['layer'])
+        self.assertIsNone(d['positional']['source'])
+        self.assertEqual(d['positional']['destination'], 'OLT-1')
+        self.assertIsNone(d['positional']['layer'])
 
     def test_skipped_layer(self):
         d = parse('source_destination__router_description')
-        self.assertEqual(d['legacy'], {'source': 'source', 'destination': 'destination', 'layer': None, 'device_function': 'router', 'description': 'description'})
+        self.assertEqual(d['positional'], {'source': 'source', 'destination': 'destination', 'layer': None, 'device_function': 'router', 'description': 'description'})
 
     def test_lists_recover_empty_members(self):
         self.assertEqual(parse('::VLAN:1,2,,3')['metadata']['VLAN'], [1, 2, 3])
