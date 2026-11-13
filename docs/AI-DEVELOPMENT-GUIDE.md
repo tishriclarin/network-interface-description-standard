@@ -4,8 +4,8 @@
 This document is the primary onboarding reference for AI coding assistants implementing or consuming the Network Interface Description Standard (NIDS). Read [SPECIFICATION.md](../SPECIFICATION.md) first, then [GRAMMAR.md](../GRAMMAR.md), then the reference Python implementation and tests.
 
 ## Non-negotiable agreed rules
-- Format: `LEGACY::KEY:VALUE_KEY:VALUE_FLAG`.
-- Legacy positions: source, destination, layer, device function, description; a lone legacy field is destination; explicit empty positions retain their slot.
+- Format: `positional::KEY:VALUE_KEY:VALUE_FLAG`.
+- positional fields: source, destination, layer, device function, description; a lone positional field is destination; explicit empty positions retain their slot.
 - Missing layer remains null; never infer L2.
 - `::` marks the transition to metadata; metadata-only descriptions are allowed.
 - Metadata keys may contain hyphens; underscores separate arguments.
