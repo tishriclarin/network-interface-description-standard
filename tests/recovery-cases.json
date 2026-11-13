@@ -1,0 +1,1 @@
+[{"input":"::DESC:'Customer Link_VLAN:150","expect_warning":true},{"input":"::VLAN:1,2,,3","expect_normalization":true}]
