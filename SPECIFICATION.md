@@ -3,22 +3,22 @@
 ## Format
 
 ```text
-LEGACY::KEY:VALUE_KEY:VALUE_FLAG
+positional::KEY:VALUE_KEY:VALUE_FLAG
 ```
 
-The first unquoted `::` starts metadata. Legacy-only descriptions are valid. Metadata-only descriptions start with `::`.
+The first unquoted `::` starts metadata. positional-only descriptions are valid. Metadata-only descriptions start with `::`.
 
-## Legacy positional fields
+## positional standard description fields
 
 Full order: `SOURCE_DESTINATION_LAYER_DEVICE-FUNCTION_DESCRIPTION`.
 
-- No legacy content: all positions null.
+- No positional content: all positions null.
 - One nonempty field: destination.
 - Two fields: source, destination.
 - Three or more: third is layer (L2 or L3 when provided), fourth is function, fifth is optional description.
 - Empty fields between underscores omit that position without shifting following fields: `source_destination__router_description` gives layer=null and function=router.
 - Layer is **never defaulted**.
-- A quoted legacy field can contain an underscore.
+- A quoted positional field can contain an underscore.
 
 ## Metadata
 
