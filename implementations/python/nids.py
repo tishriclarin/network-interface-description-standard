@@ -105,7 +105,7 @@ def parse(description: str) -> dict[str, Any]:
             if len(positions) > 5:
                 warnings.append('Extra positional fields ignored')
             if positional['layer'] and positional['layer'].upper() not in ('L2', 'L3'):
-                warnings.append('positional layer is not L2 or L3')
+                warnings.append('Positional layer is not L2 or L3')
     metadata: dict[str, Any] = {}
     if metadata_text is not None:
         fields, notes = _split_fields(metadata_text, recover_quotes=True)
@@ -122,4 +122,4 @@ def parse(description: str) -> dict[str, Any]:
             if key in metadata:
                 warnings.append(f'Duplicate key {key}; last value wins')
             metadata[key] = _decode(value, warnings) if sep else True
-    return {'legacy': positional, 'metadata': metadata, 'warnings': warnings}
+    return {'positional': positional, 'metadata': metadata, 'warnings': warnings}
